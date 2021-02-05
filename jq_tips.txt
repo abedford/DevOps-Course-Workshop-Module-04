@@ -1,0 +1,13 @@
+jq '.features[].properties | {mag}' newdata.json 
+
+jq '.features[1].properties.mag' newdata.json
+jq '.features[1].properties.place' newdata.json
+ jq '.features[0].geometry.coordinates[0,1]' newdata.json
+ 
+ 
+ 
+jq '.features[0].geometry.coordinates[0,1],.features[0].properties.place,.features[0].properties.mag' newdata.json
+
+ jq -r '[.features[0].geometry.coordinates[0,1],.features[0].properties.place,.features[0].properties.mag] | map(tostring) | join("|")' newdata.json
+jq -r '.features[] | [.geometry.coordinates[0,1],.properties.place,.properties.mag] | map(tostring) | join("|")' newdata.json
+
